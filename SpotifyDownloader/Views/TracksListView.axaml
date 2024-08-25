@@ -1,0 +1,89 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="SpotifyDownloader.Views.TracksListView"
+    x:DataType="vm:TrackListViewModel"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:asyncImageLoader="clr-namespace:AsyncImageLoader;assembly=AsyncImageLoader.Avalonia"
+    xmlns:controls="clr-namespace:FluentAvalonia.UI.Controls;assembly=FluentAvalonia.ProgressRing"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:icons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:theme="clr-namespace:Avalonia.Themes.Neumorphism.Controls;assembly=Avalonia.Themes.Neumorphism"
+    xmlns:vm="using:SpotifyDownloader.ViewModels"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid>
+        <ScrollViewer>
+            <ItemsControl ItemsSource="{Binding Songs}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <theme:Card
+                            Background="White"
+                            CornerRadius="10"
+                            Height="310"
+                            Margin="10"
+                            Padding="0"
+                            VerticalAlignment="Top"
+                            Width="250">
+                            <ToolTip.Tip>
+                                <MultiBinding StringFormat="{}{0} - {1}">
+                                    <Binding Path="Name" />
+                                    <Binding Path="Artists[0].Name" />
+                                </MultiBinding>
+                            </ToolTip.Tip>
+                            <Grid>
+                                <StackPanel Margin="0" ZIndex="1">
+                                    <Image
+                                        Height="240"
+                                        Stretch="Uniform"
+                                        Width="240"
+                                        asyncImageLoader:ImageLoader.Source="{Binding Album.Images[0].Url}" />
+                                    <StackPanel Margin="20,12" Orientation="Vertical">
+                                        <TextBlock
+                                            Classes="Headline6"
+                                            Foreground="Black"
+                                            Text="{Binding Name}" />
+                                        <TextBlock
+                                            Classes="Body2"
+                                            Foreground="Black"
+                                            Text="{Binding Artists[0].Name}" />
+                                    </StackPanel>
+                                </StackPanel>
+                            </Grid>
+                        </theme:Card>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+        </ScrollViewer>
+        <Button
+            Background="#2c3135"
+            Command="{Binding DownloadCommand}"
+            Cursor="Hand"
+            Height="90"
+            HorizontalAlignment="Right"
+            Margin="30"
+            Padding="0,25"
+            Theme="{StaticResource ButtonIcon}"
+            VerticalAlignment="Bottom"
+            Width="90">
+            <Button.Content>
+                <Grid>
+                    <icons:MaterialIcon
+                        Height="40"
+                        IsVisible="{Binding !IsLoading^}"
+                        Kind="Download"
+                        Width="40" />
+                    <controls:ProgressRing IsIndeterminate="True" IsVisible="{Binding IsLoading^}" />
+                </Grid>
+            </Button.Content>
+        </Button>
+    </Grid>
+
+</UserControl>

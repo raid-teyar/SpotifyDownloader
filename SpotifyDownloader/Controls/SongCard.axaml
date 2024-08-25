@@ -1,0 +1,44 @@
+<UserControl
+    x:Class="SpotifyDownloader.Controls.SongCard"
+    x:DataType="vm:SongCard"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:theme="clr-namespace:Avalonia.Themes.Neumorphism.Controls;assembly=Avalonia.Themes.Neumorphism"
+    xmlns:vm="using:SpotifyDownloader.Controls"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <theme:Card
+        CornerRadius="20"
+        Height="310"
+        Padding="0"
+        ToolTip.Tip="Card with theme &quot;CardInset&quot; applied with custom corner radius"
+        VerticalAlignment="Top"
+        Width="250">
+        <Grid>
+            <StackPanel Margin="0" ZIndex="1">
+                <Image
+                    Height="240"
+                    Source="{Binding Image}"
+                    Stretch="Uniform"
+                    Width="240" />
+                <StackPanel Margin="20,12" Orientation="Vertical">
+                    <TextBlock
+                        Classes="Headline6"
+                        Foreground="Black"
+                        Text="{Binding Title}" />
+                    <TextBlock
+                        Classes="Body2"
+                        Foreground="Black"
+                        Opacity="0.6"
+                        Text="{Binding Artist}" />
+                </StackPanel>
+            </StackPanel>
+            <Border
+                Background="Transparent"
+                BoxShadow="inset 8 8 48 Black, inset -8 -8 48 White"
+                CornerRadius="20"
+                Height="310"
+                Width="250"
+                ZIndex="2" />
+        </Grid>
+    </theme:Card>
+
+</UserControl>

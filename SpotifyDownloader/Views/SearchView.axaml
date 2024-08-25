@@ -1,0 +1,86 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="SpotifyDownloader.Views.SearchView"
+    x:DataType="vm:SearchViewModel"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ring="clr-namespace:FluentAvalonia.UI.Controls;assembly=FluentAvalonia.ProgressRing"
+    xmlns:vm="using:SpotifyDownloader.ViewModels"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="8*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <TextBlock
+                FontSize="40"
+                FontWeight="Bold"
+                Grid.ColumnSpan="3"
+                HorizontalAlignment="Center"
+                Margin="10"
+                Text="Spotify Downloader"
+                VerticalAlignment="Center" />
+
+            <StackPanel
+                Grid.Column="1"
+                Grid.Row="1"
+                Margin="40">
+                <TextBlock
+                    FontSize="16"
+                    FontWeight="Light"
+                    HorizontalAlignment="Left"
+                    Margin="5,0,0,0"
+                    Text="Paste a link (song or playlist)" />
+
+                <TextBox
+                    BorderThickness="2.5"
+                    FontSize="13"
+                    HorizontalAlignment="Stretch"
+                    Text="{Binding SearchInput}"
+                    VerticalAlignment="Stretch"
+                    Watermark="ex: https://open.spotify.com/playlist/4NcDtcfnyOImXTTb34Fi4u?si=448df85b7a7940ef"
+                    Width="NaN"
+                    x:Name="SearchInput" />
+            </StackPanel>
+
+            <Button
+                Command="{Binding SearchCommand}"
+                Grid.Column="1"
+                Grid.Row="2"
+                Height="40"
+                HorizontalAlignment="Center"
+                Margin="5"
+                VerticalAlignment="Top"
+                Width="180">
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                    <TextBlock
+                        FontWeight="Bold"
+                        Margin="0,0,10,0"
+                        VerticalAlignment="Center">
+                        Search
+                    </TextBlock>
+                    <ring:ProgressRing IsIndeterminate="True" IsVisible="{Binding IsLoading^}" />
+                </StackPanel>
+            </Button>
+
+        </Grid>
+        <TextBlock
+            HorizontalAlignment="Right"
+            Margin="4"
+            Text="@TeyarRaid/v2.0"
+            VerticalAlignment="Bottom" />
+    </Grid>
+</UserControl>
