@@ -11,7 +11,6 @@ public static class DataValidators
         private static readonly string SearchRegex = @"^https:\/\/open\.spotify\.com\/(playlist|track)\/[a-zA-Z0-9]{22}(\?si=[a-zA-Z0-9_-]+)?$";
 
         // extension methods
-
         // for string validation
         public static bool IsValid(this string value, DataTypes dataType)
         {

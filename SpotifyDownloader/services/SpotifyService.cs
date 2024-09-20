@@ -27,7 +27,7 @@ public class SpotifyService : ISpotifyService
     private static readonly string UserAgent = "SpotifySongDoawnloaderRuntime/1.0";
     private readonly int _divergence = 1000 * 60;
 
-    // this a public token anyone can get by making a public call, still I know its bad practice to put it here tho
+    // this a public token anyone can get by making a public call, still I know its bad practice to put it here
     private string _spotifyToken =
         "BQCZOHiFnSqDVqVYF9oL-d1lY93TJdLPGcTxuSmkOK9w0WmC5GN3cOZAm3V7JNUvPJMFZFP6JwpmvxqKZGMavujdHKlOClfREKJYOSKTBYY61VUupK4";
 
@@ -92,13 +92,13 @@ public class SpotifyService : ISpotifyService
                     return track;
 
                 case HttpStatusCode.Unauthorized:
-                    //_noticeMessageService.ShowInfo("Token expired, getting a new one...");
+                    _notificationService.ShowInfo("Token expired, getting a new one...");
                     await GetAuthToken();
                     var track2 = await GetTrack(trackId);
                     return track2;
 
                 default:
-                    //_noticeMessageService.ShowError("There was an error when trying to get the track :(");
+                    _notificationService.ShowError("There was an error when trying to get the track :(");
                     return null;
             }
         }

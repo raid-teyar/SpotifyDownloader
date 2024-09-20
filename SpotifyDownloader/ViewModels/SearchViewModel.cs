@@ -81,8 +81,6 @@ public class SearchViewModel : ViewModelBase, IRoutableViewModel
 
         SearchCommand = ReactiveCommand.CreateFromTask(Search, CanSearch());
     }
-    
-
     #endregion
 
 }
