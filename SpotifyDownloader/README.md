@@ -1,3 +1,4 @@
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/O5O013MET3)
 # Cross-Platform SpotifyDownloader
 
 **Cross-Platform SpotifyDownloader** is a versatile desktop application designed to download Spotify playlist songs without requiring any registration or login information. This reworked version is built using Avalonia, .NET 7.0, and follows the MVVM design pattern with ReactiveUI for reactive programming. The application runs seamlessly on Windows, Linux, and macOS.
