@@ -27,7 +27,7 @@ public class SpotifyService : ISpotifyService
     private static readonly string UserAgent = "SpotifySongDoawnloaderRuntime/1.0";
     private readonly int _divergence = 1000 * 60;
 
-    // this a public token anyone can get by making a public call, still I know its bad practice to put it here
+    // this is a public token anyone can get by making a public call, still I know its bad practice to put it here :/
     private string _spotifyToken =
         "BQCZOHiFnSqDVqVYF9oL-d1lY93TJdLPGcTxuSmkOK9w0WmC5GN3cOZAm3V7JNUvPJMFZFP6JwpmvxqKZGMavujdHKlOClfREKJYOSKTBYY61VUupK4";
 
