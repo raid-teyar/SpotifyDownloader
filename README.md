@@ -2,6 +2,7 @@
 # Cross-Platform SpotifyDownloader
 
 **Cross-Platform SpotifyDownloader** is a versatile desktop application designed to download Spotify playlist songs without requiring any registration or login information. This reworked version is built using Avalonia, .NET 8.0, and follows the MVVM design pattern with ReactiveUI for reactive programming. The application runs seamlessly on Windows, Linux, and macOS.
+*None cross-plateform version i made in the past using WPF: https://github.com/raid-teyar/SpotifyPlaylistDownloader*
 
 ## How it Works
 
