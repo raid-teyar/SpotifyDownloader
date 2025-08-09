@@ -1,0 +1,23 @@
+<Application
+    RequestedThemeVariant="Default"
+    x:Class="SpotifyDownloader.App"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:local="using:SpotifyDownloader"
+    xmlns:materialIcons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+    xmlns:themes="clr-namespace:Avalonia.Themes.Neumorphism;assembly=Avalonia.Themes.Neumorphism"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Application.DataTemplates>
+        <local:ViewLocator />
+    </Application.DataTemplates>
+
+    <Application.Styles>
+        <themes:NeumorphismTheme
+            BaseTheme="Light"
+            PrimaryColor="Purple"
+            SecondaryColor="Lime" />
+        <StyleInclude Source="avares://FluentAvalonia.ProgressRing/Styling/Controls/ProgressRing.axaml" />
+        <StyleInclude Source="avares://Notification.Avalonia/Themes/Generic.xaml" />
+        <materialIcons:MaterialIconStyles />
+    </Application.Styles>
+</Application> 

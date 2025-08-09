@@ -1,0 +1,54 @@
+<rxui:ReactiveWindow
+    Title="Spotify Downloader"
+    d:DesignHeight="450"
+    d:DesignWidth="600"
+    mc:Ignorable="d"
+    x:Class="SpotifyDownloader.Views.MainWindow"
+    x:DataType="vm:MainWindowViewModel"
+    x:TypeArguments="vm:MainWindowViewModel"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:noti="clr-namespace:Avalonia.Notification.Controls;assembly=Notification.Avalonia"
+    xmlns:rxui="clr-namespace:Avalonia.ReactiveUI;assembly=Avalonia.ReactiveUI"
+    xmlns:vm="using:SpotifyDownloader.ViewModels"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid>
+        <noti:NotificationMessageContainer
+            HorizontalAlignment="Right"
+            Manager="{Binding Manager}"
+            ZIndex="100" />
+        <rxui:RoutedViewHost PageTransition="{x:Null}" Router="{Binding Router}" />
+        <StackPanel
+            HorizontalAlignment="Left"
+            Margin="10"
+            Orientation="Horizontal"
+            Spacing="10"
+            VerticalAlignment="Bottom">
+            <Button
+                Background="#2c3135"
+                Command="{Binding GoBack}"
+                Theme="{StaticResource ButtonIcon}">
+                <Button.Content>
+                    <avalonia:MaterialIcon
+                        Height="30"
+                        Kind="ArrowLeft"
+                        Width="40" />
+                </Button.Content>
+            </Button>
+            <Button
+                Background="#2c3135"
+                Command="{Binding GoNext}"
+                Theme="{StaticResource ButtonIcon}">
+                <Button.Content>
+                    <avalonia:MaterialIcon
+                        Height="30"
+                        Kind="ArrowRight"
+                        Width="40" />
+                </Button.Content>
+            </Button>
+
+        </StackPanel>
+    </Grid>
+</rxui:ReactiveWindow>
